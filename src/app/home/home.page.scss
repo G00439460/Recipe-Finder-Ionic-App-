@@ -6,6 +6,7 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  color: #e86daf;
 }
 
 #container strong {
@@ -17,7 +18,7 @@
   font-size: 16px;
   line-height: 22px;
 
-  color: #8c8c8c;
+  color: #e86daf;
 
   margin: 0;
 }
@@ -25,3 +26,13 @@
 #container a {
   text-decoration: none;
 }
+
+.ingredient-section{
+  display: flex;
+justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+
+

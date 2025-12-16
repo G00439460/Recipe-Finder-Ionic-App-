@@ -35,3 +35,41 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-content {
+  --background: #f782d4; /* soft green */
+  --color: #f8f4f4;
+}
+
+ion-toolbar {
+  --background: #f746c2; /* soft green */
+  --color: #f1eaea;         /* text/icon color */
+}
+
+ion-button{
+    --color: #f414cb;
+    --background: #f7f5f6;
+}
+ion-button:hover {
+  transform: scale(1.05);   /* slightly bigger */
+  transition: transform 0.2s ease-in-out; /* smooth animation */
+}
+
+ion-content ion-button {
+  --background: #f9f8f7;  /* orange for content buttons */
+  --color: #f414cb;
+  font-weight: 600;
+}
+
+ion-toolbar ion-button:hover {
+  transform: scale(1.1);   /* bigger scale for toolbar buttons */
+  transition: transform 0.2s ease-in-out;
+}
+
+ion-content ion-button:hover {
+  transform: scale(1.03);  /* smaller scale for content buttons */
+  transition: transform 0.2s ease-in-out;
+}
+
+
+

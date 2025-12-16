@@ -2,18 +2,36 @@
   <ion-toolbar>
     <ion-title>G00439460</ion-title>
 
-    <ion-button slot="end" fill="solid">
+    <ion-button slot="end" fill="solid" aria-label="Favorites" routerLink="/favourites">
       <ion-icon slot="icon-only" name="heart"></ion-icon>
     </ion-button>
 
-    <ion-button slot="end" fill="solid">
+    <ion-button slot="end" fill="solid" aria-label="Settings" routerLink="/settings">
       <ion-icon slot="icon-only" name="settings"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+ <ion-content class="ion-padding">
+
+  <!-- Ingredient Input Section -->
+  <div class="ingredient-section">
+    <h2>Enter Ingredients</h2>
+    <ion-input 
+    type="text"
+    name="ingredients"
+      [(ngModel)]="ingredients"
+      placeholder="TYPE INGREDIENTS👉 🍅, 🧅, 🍌"
+      clear-input="true">
+    </ion-input>    
+</div>
+  <!-- Serch button-->
+    <ion-button expand="block" (click)="searchRecipes()">
+      SEARCH
+    </ion-button>
+  
+
+</ion-content>
+
+
 
