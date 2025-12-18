@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInput } from '@ionic/angular/standalone';
+import {IonCardContent, IonCardTitle, IonCardHeader, IonSearchbar, IonCard, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonInput } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import {RouterLink} from '@angular/router';
+import { Spoonacular } from '../services/spoonacular';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -11,14 +13,17 @@ import {RouterLink} from '@angular/router';
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent,
-    IonButton, IonIcon, FormsModule, IonInput,
-    RouterLink,
-    
+    IonButton, IonIcon, FormsModule, IonCardHeader,
+    RouterLink, IonCard, IonSearchbar, CommonModule,
+IonCardTitle, IonCardContent
   ],
 })
 export class HomePage {
 
 ingredients: string = '';
+recipes: any[] = [];
+
+constructor(private recipeService: Spoonacular){}
 
   searchRecipes() {
     // Split by commas, trim spaces
@@ -27,8 +32,11 @@ ingredients: string = '';
       .map(i => i.trim())
       .filter(i => i.length > 0);
 
-    console.log('Searching recipes with:', ingredientList);
-    // Here you can call your recipe API or service
-  }
+  this.recipeService.searchRecipes(this.ingredients).subscribe((data:any)=>{
+  this.recipes = data.results; 
+
+ console.log('Recipes found:', this.recipes);
+});
+}
 }
 

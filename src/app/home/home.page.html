@@ -13,24 +13,43 @@
 </ion-header>
 
  <ion-content class="ion-padding">
-
-  <!-- Ingredient Input Section -->
+  
+<!-- Ingredient Input Section -->  
+  <ion-card>
   <div class="ingredient-section">
-    <h2>Enter Ingredients</h2>
-    <ion-input 
+    <h4>Enter Ingredients</h4>
+    <ion-searchbar 
     type="text"
     name="ingredients"
       [(ngModel)]="ingredients"
-      placeholder="TYPE INGREDIENTS👉 🍅, 🧅, 🍌"
+      placeholder="Type 🍅, 🧅, 🍌"
       clear-input="true">
-    </ion-input>    
+    </ion-searchbar>    
 </div>
-  <!-- Serch button-->
-    <ion-button expand="block" (click)="searchRecipes()">
+</ion-card>
+
+<!-- Serch button-->
+   <div class="search-button">
+    <ion-button (click)="searchRecipes()">
       SEARCH
     </ion-button>
-  
+</div>
 
+<!--Recipe cards-->
+<div *ngFor="let recipe of recipes">
+    <ion-card>
+      <img [src]="recipe.image" alt="{{ recipe.title }}">
+      <ion-card-header>
+        <ion-card-title>{{ recipe.title }}</ion-card-title>
+      </ion-card-header>
+        <ion-card-content>
+      <!-- <p>ID: {{ recipe.id }}</p> --> 
+        <ion-button fill="outline" [routerLink]="['/details', recipe.id]">
+          Details
+        </ion-button>
+      </ion-card-content>   
+    </ion-card>
+  </div>
 </ion-content>
 
 

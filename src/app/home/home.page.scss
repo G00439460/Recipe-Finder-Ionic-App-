@@ -34,5 +34,15 @@ justify-content: space-evenly;
   margin-bottom: 1.5rem;
 }
 
+.search-button{
+  display: flex;
+  justify-content: center;
+   align-items: center;
+}
+.search-button ion-button {
+  width: 100px;   /* fixed width */
+  height: 40px;   /* fixed height */
+  font-size: 14px;
+}
 
 
