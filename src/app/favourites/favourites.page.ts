@@ -18,34 +18,42 @@ import { SettingService } from '../services/setting-service';
   ]
 })
 export class FavouritesPage implements OnInit {
+  //Stores list of favourite recipes.
   favourites: any[] = [];
+  //Store details of a single recipe.
   recipe: any;
+//Default unit systeme set to Metric.
   unitSystem: 'Metric' | 'Imperial' = 'Metric';
 
-  constructor(private favService: FavouritesService,
-    private route: ActivatedRoute,
-    private spoonacularService: Spoonacular,
-    private setting: SettingService,
+  constructor(private favService: FavouritesService,//Inject favourites service.
+    private route: ActivatedRoute,//Access route parameters.
+    private spoonacularService: Spoonacular,//Fetch recipe details.
+    private setting: SettingService,//Manage app settings.
   ) { }
 
   ngOnInit() { 
+    //Get recipe ID from rout URL.
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    //Fetch recipe details from Spoonacular API.
     this.spoonacularService.getRecipeDetails(id).subscribe((data: any) => {
-      this.recipe = data;
+      this.recipe = data;//Get recipe details.
       console.log('Recipe details:', this.recipe);
     });
   }
   
  ionViewWillEnter() {
+  //Load favourites list when page is about to be show.
     this.favourites = this.favService.getFavourites();
-    // Subscribe to changes
+    // Subscribe to unit system changes.
     this.setting.unitSystem$.subscribe(value => {
       this.unitSystem = value;
     });
   }
 remove(recipeId: number) {
+  //Remove revipe form favourites.
   this.favService.removeFavourite(recipeId);
-  this.favourites = this.favService.getFavourites(); // refresh list
+  //Refresh list.
+  this.favourites = this.favService.getFavourites();
 }
 
 }

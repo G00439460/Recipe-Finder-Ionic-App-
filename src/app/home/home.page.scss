@@ -36,6 +36,11 @@ justify-content: space-between;
   margin-left: 10px;
 }
 
+.ingredient-section h4{
+  color: #e86daf;
+  font-weight: bolder;
+}
+
 .search-button{
   display: flex;
   justify-content: center;
@@ -48,3 +53,16 @@ justify-content: space-between;
 }
 
 
+.bufo{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.bufo img{
+  width: 200px;
+  height: 200px;
+}

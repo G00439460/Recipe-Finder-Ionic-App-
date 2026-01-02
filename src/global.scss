@@ -37,8 +37,59 @@
 @import '@ionic/angular/css/palettes/dark.system.css';
 
 ion-content {
-  --background: #f782d4; /* soft green */
-  --color: #f8f4f4;
+   --background: #ef3eb4;
+    --color: #f8f4f4;
+
+      position: relative;   /* Needed so child elements can be positioned */
+      overflow: hidden;     /* Prevents scrollbars from showing */
+}
+
+/* Fruit rain container */
+ion-content::before {
+  content: '';
+  position: fixed;      /* Covers the whole viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Keeps background non-interactive */
+  z-index: -1;          /* Pushes behind your content */
+}
+
+/* Emoji rain effect */
+.fruit-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.fruit-rain span {
+  position: absolute;
+  top: -10%;
+  font-size: 5rem;
+  animation: fall linear infinite;
+}
+
+/* Random positions and speeds */
+.fruit-rain span:nth-child(1) { left: 6%; animation-duration: 9s; }
+.fruit-rain span:nth-child(2) { left: 15%; animation-duration: 11s; }
+.fruit-rain span:nth-child(3) { left: 40%; animation-duration: 10s; }
+.fruit-rain span:nth-child(4) { left: 55%; animation-duration: 7s; }
+.fruit-rain span:nth-child(5) { left: 70%; animation-duration: 9s; }
+.fruit-rain span:nth-child(6) { left: 85%; animation-duration: 10s; }
+.fruit-rain span:nth-child(7) { left: 35%; animation-duration: 10s; }
+.fruit-rain span:nth-child(8) { left: 35%; animation-duration: 7s; }
+.fruit-rain span:nth-child(9) { left: 60%; animation-duration: 8s; }
+.fruit-rain span:nth-child(10){ left: 80%; animation-duration: 9s; }
+
+@keyframes fall {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
 }
 
 ion-toolbar {

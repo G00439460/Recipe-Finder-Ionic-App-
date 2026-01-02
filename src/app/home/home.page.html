@@ -2,10 +2,11 @@
   <ion-toolbar>
     <ion-title>G00439460</ion-title>
 
+<!-- Favorites button in header -->
     <ion-button slot="end" fill="solid" aria-label="Favorites" routerLink="/favourites">
       <ion-icon slot="icon-only" name="heart"></ion-icon>
     </ion-button>
-
+<!-- Settings button in header -->
     <ion-button slot="end" fill="solid" aria-label="Settings" routerLink="/settings">
       <ion-icon slot="icon-only" name="settings"></ion-icon>
     </ion-button>
@@ -13,13 +14,33 @@
 </ion-header>
 
  <ion-content class="ion-padding">
-  
+
+  <!-- Background fruit rain -->
+  <div class="fruit-rain">
+    <span>🍎</span>
+    <span>🍌</span>
+    <span>🍇</span>
+    <span>🍉</span>
+    <span>🍓</span>
+    <span>🍍</span>
+    <span>🥭</span>
+    <span>🍒</span>
+    <span>🍑</span>
+    <span>🍊</span>
+  </div>
+
 <!-- Ingredient Input Section -->  
   <ion-card>
   <div class="ingredient-section">
+    <!-- Title -->
     <h4>Enter Ingredients</h4>
-    <ion-searchbar 
-    type="text"
+    <!-- Serch bar -->
+      <!-- Input type text -->
+      <!-- Input name -->
+        <!-- Two-way binding to 'ingredients' variable -->
+      <!-- Adds clear button -->
+        <ion-searchbar 
+    type="text"  
     name="ingredients"
       [(ngModel)]="ingredients"
       placeholder="Type 🍅, 🧅, 🍌"
@@ -30,27 +51,38 @@
 
 <!-- Serch button-->
    <div class="search-button">
+     <!-- Calls searchRecipes() method on click -->
     <ion-button (click)="searchRecipes()">
       SEARCH
     </ion-button>
 </div>
 
-<!--Recipe cards-->
+<!--Recipe cards section-->
+  <!-- Loops through 'recipes' array -->
 <div *ngFor="let recipe of recipes">
+    <!-- Card for each recipe -->
     <ion-card>
+      <!-- Recipe image -->
       <img [src]="recipe?.image" alt="{{ recipe.title }}">
       <ion-card-header>
+        <!-- Recipe title -->
         <ion-card-title>{{ recipe?.title }}</ion-card-title>
       </ion-card-header>
+          <!-- Recipe summary text -->
       <p>{{ recipe?.summary }}</p>
+
         <ion-card-content>
-      <!-- <p>ID: {{ recipe.id }}</p> --> 
+      <!-- Details button linking to recipe details page -->
         <ion-button fill="outline" [routerLink]="['/recipe-details', recipe.id]">
           Details
         </ion-button>
       </ion-card-content>   
     </ion-card>
   </div>
+  <div class="bufo">
+<img src="assets/bufo/bufo-loves-rice-and-beans.png">
+<img src="assets/bufo/bufo-offers-a-piece-of-cake.png">
+</div>
 </ion-content>
 
 

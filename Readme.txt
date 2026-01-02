@@ -6,4 +6,7 @@ This is an Ionic mobile application that:
 • allows measurement units to be shown in either US or Metric.
 
 
-Solving issues in the render of the Details Page( that uses the recipe ID to call the second API endpoint and renders the full recipe information, including the image, a list of ingredients with amounts and units, and instructions with numbered steps).
+Working in the settings page so user can select between Metric or Imperial measurement.
+If no “Measurement” has been previously selected the value “Metric” should be selected 
+by default. Also worked in the services for settings and favourites getting right local
+storage. 

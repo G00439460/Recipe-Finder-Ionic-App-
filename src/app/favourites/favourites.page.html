@@ -2,44 +2,47 @@
   <ion-toolbar>
     <ion-title>Favourites</ion-title>
 
+<!--Home button-->
     <ion-button slot="end" fill="solid" aria-label="home" routerLink="/home">
       <ion-icon slot="icon-only" name="home"></ion-icon>
     </ion-button>
-
+<!--Settings button-->
     <ion-button slot="end" fill="solid" aria-label="Settings" routerLink="/settings">
       <ion-icon slot="icon-only" name="settings"></ion-icon>
     </ion-button>
-
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
+<!--Display each recipe in a card layout-->
+<!--Looping through the favourites array-->
  <ion-card *ngFor="let recipe of favourites">
-    
+    <!--Shows recipe image dynamically-->
     <img [src]="recipe.image" alt="{{ recipe.title }}">
-
+    <!--Display recipe title-->
     <ion-card-header>
       <h5>Recipe name:</h5>
       <h1>{{ recipe.title }}</h1>
     </ion-card-header>
 
     <ion-card-content>
-
       <h2>Ingredients:</h2>
+      <!--Loops through recipe ingredients-->
       <ul>
         <li *ngFor="let ing of recipe.extendedIngredients">
+          <!--Shows ingredient description-->
           {{ ing.original }}
-          <!--({{ ing.measures.metric.amount }} {{ ing.measures.metric.unitLong }})-->
-           ({{ unitSystem === 'Metric' 
+          <!--Displays amoutn depending on unit system-->
+          ({{ unitSystem === 'Metric'   
       ? ing.measures.metric.amount + ' ' + ing.measures.metric.unitLong 
       : ing.measures.us.amount + ' ' + ing.measures.us.unitLong }})
         </li>
       </ul>
 
       <h2>Instructions:</h2>
-      
+      <!--Loops through recipe instruction-->
       <div *ngFor="let instr of recipe.analyzedInstructions">
+        <!--Loops through multiple steps. Displayed in a list-->
         <div *ngFor="let step of instr.steps">
         <ul>
           <li>Step {{ step.number }}: {{ step.step }}</li>
@@ -48,7 +51,7 @@
         
       </div>
 
-      <!--Remove button-->
+      <!--Remove button, call the method remove recipe by id-->
     <ion-button (click)="remove(recipe.id)">
       Remove from 💖
     </ion-button>
@@ -58,8 +61,7 @@
 
   </ion-card>
 
-
-
+<!--Another home button-->
 <div class="recipe-home">
 <ion-button routerLink="/home">
   <ion-icon slot="icon-only" name="home"></ion-icon>

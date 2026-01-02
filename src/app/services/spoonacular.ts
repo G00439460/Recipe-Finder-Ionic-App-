@@ -11,9 +11,7 @@ export class Spoonacular {
 
 
   constructor(private http: HttpClient) {}
-
-  //I keep it simple, make it work first.
-  //I do not have to use Sync, because Observables are asynchronous by design — they don’t block the UI.
+  
  //Method to display recipies base on the words entered.
   searchRecipes(query: string): Observable<any> {
     return this.http.get(`${this.apiUrl1}?query=${query}&apiKey=${this.apiKey}`);
