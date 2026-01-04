@@ -1,5 +1,5 @@
 .recipe-home {
-    background-color:#f782d4;
+    //background-color:#f782d4;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -10,4 +10,26 @@
     height: 40px;
     --background: #f7f5f6;
     
+}
+
+.bufo{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.bufo img{
+  width: 200px;
+  height: 200px;
+}
+
+.settings h1{
+color:#ee32f8;
+margin-left: 50px;
+}
+.label{
+    color:#ee32f8;
 }

@@ -1,5 +1,5 @@
 .recipe-home {
-    background-color:#f782d4;
+    background-color:none;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -8,6 +8,14 @@
 .recipe-home ion-button{
     width: 100px;
     height: 40px;
-    --background: #fbfafb;
-
+    //--background: #fbfafb;
 }
+.img-det{
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.card-det{
+    --background:  rgba(255, 255, 255, 0.7);
+}
+

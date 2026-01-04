@@ -20,12 +20,20 @@ import { SettingService } from '../services/setting-service';
 })
 
 export class RecipeDetailsPage implements OnInit {
+// Holds recipe data fetched from API.
 recipe: any;
+// Tracks if the recipe is marked as favourite.
 isFav = false;
+// Controls temporary "Added to favourites" message display.
 addedMessage = false;
+// Tracks unit system preference (Metric or Imperial), default is Metric.
 unitSystem: 'Metric' | 'Imperial' = 'Metric';
 
-
+// Constructor injects required services:
+  // - ActivatedRoute: to access route parameters.
+  // - Spoonacular: service to fetch recipe details from API.
+  // - FavouritesService: service to manage favourite recipes.
+  // - SettingService: service to manage app settings.
   constructor(
     private route: ActivatedRoute,
     private spoonacularService: Spoonacular,
@@ -34,29 +42,36 @@ unitSystem: 'Metric' | 'Imperial' = 'Metric';
   ) { }
 
   ngOnInit() {
+// Get recipe ID from route parameters.   
  const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.spoonacularService.getRecipeDetails(id).subscribe((data: any) => {
-      this.recipe = data;
+
+// Fetch recipe details from Spoonacular API using the ID
+this.spoonacularService.getRecipeDetails(id).subscribe((data: any) => {
+  // Store recipe data    
+  this.recipe = data;
+
       console.log('Recipe details:', this.recipe);
     });
 
-// Subscribe to changes
+// Subscribe to unit system changes from settings service.
     this.setting.unitSystem$.subscribe(value => {
       this.unitSystem = value;
     });
 
   }
+// Method to toggle recipe as favourite or remove it.
 toggleFavourite() {
     if (this.isFav) {
-      //Remoce from favourites.
+      //Remove from favourites.
       this.favService.removeFavourite(this.recipe.id);
+      //Default value set to false.
       this.isFav = false;
+      //Hidde Added message.
       this.addedMessage = false;
     } else {
       //Add to favourites.
       this.favService.addFavourite(this.recipe);
       this.isFav = true;
-
       //Show temporary "Added to favourites".
       this.addedMessage = true;
 

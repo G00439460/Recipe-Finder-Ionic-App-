@@ -66,3 +66,22 @@ justify-content: space-between;
   width: 200px;
   height: 200px;
 }
+
+.details{
+  background-color: rgba(255, 255, 255, 0.6); 
+}
+
+ion-card-title{
+  color:white;
+}
+.button-det{
+  --background: #f505b5;
+  --color: white;
+}
+.details img{
+  height: 300px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+}

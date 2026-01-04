@@ -93,8 +93,8 @@ ion-content::before {
 }
 
 ion-toolbar {
-  --background: #f746c2; /* soft green */
-  --color: #f1eaea;         /* text/icon color */
+  --background: #f746c2; 
+  --color: #f1eaea;
 }
 
 ion-button{
@@ -107,7 +107,7 @@ ion-button:hover {
 }
 
 ion-content ion-button {
-  --background: #f9f8f7;  /* orange for content buttons */
+  //--background: #f9f8f7;  /* orange for content buttons */
   --color: #f414cb;
   font-weight: 600;
 }
@@ -121,6 +121,4 @@ ion-content ion-button:hover {
   transform: scale(1.03);  /* smaller scale for content buttons */
   transition: transform 0.2s ease-in-out;
 }
-
-
 

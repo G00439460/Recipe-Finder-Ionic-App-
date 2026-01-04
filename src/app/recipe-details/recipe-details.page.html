@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Recipe Details</ion-title>
+    <!-- Favorites button in header -->
 <ion-button slot="end" fill="solid" aria-label="Favorites" routerLink="/favourites">
       <ion-icon slot="icon-only" name="heart"></ion-icon>
     </ion-button>
-
+    <!-- Settings button in header -->
     <ion-button slot="end" fill="solid" aria-label="Settings" routerLink="/settings">
       <ion-icon slot="icon-only" name="settings"></ion-icon>
     </ion-button>
@@ -12,33 +13,56 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<!-- Background fruit rain -->
+   <div class="fruit-rain">
+    <span>🍎</span>
+    <span>🍌</span>
+    <span>🍇</span>
+    <span>🍉</span>
+    <span>🍓</span>
+    <span>🍍</span>
+    <span>🥭</span>
+    <span>🍒</span>
+    <span>🍑</span>
+    <span>🍊</span>
+  </div>
 
- <ion-card *ngIf="recipe">
-    <img [src]="recipe?.image" alt="{{ recipe.title }}">
+  <!-- Recipe Details Section -->
+    <!-- Display recipe card only if 'recipe' object exists -->  
+ <ion-card class="card-det" *ngIf="recipe">
+     
+    <!-- Recipe image --> 
+    <img class="img-det" [src]="recipe?.image" alt="{{ recipe.title }}">
 
-    
+    <!-- Recipe header with title -->    
     <ion-card-header>
-      <h5>Recipe name: </h5>
+      <h5>✔️ Recipe name: </h5>
+      <!-- Bind recipe title -->
       <h1>{{ recipe.title }}</h1>
         </ion-card-header>
 
+      <!-- Recipe content -->  
     <ion-card-content>
-      <h2>Ingredients:</h2>
+      <!-- Ingredient list -->
+      <h2>🧂 Ingredients:</h2>
+      <!-- Loop through each ingredient in recipe.extendedIngredients -->
       <ul>
         <li *ngFor="let ing of recipe?.extendedIngredients">
           {{ ing.original }} 
-          <!--({{ ing.measures.metric.amount }} {{ ing.measures.metric.unitLong }})-->
+          <!-- Display ingredient amount based on selected unit system -->  
            ({{ unitSystem === 'Metric' 
            ? ing.measures.metric.amount + ' ' + ing.measures.metric.unitLong 
             : ing.measures.us.amount + ' ' + ing.measures.us.unitLong }})
-
         </li>
       </ul>
-
-      <h2>Instructions:</h2>
+      <!-- Instructions list -->
+      <h2>📝 Instructions:</h2>
+        <!-- Loop through analyzed instructions -->
       <div *ngFor="let instr of recipe.analyzedInstructions">
+        <!-- Loop through each step in instructions -->  
         <div *ngFor="let step of instr.steps">
           <ul>
+            <!-- Show step number and text -->
           <li>Step {{ step.number }}: {{ step.step }}</li>
         </ul>
         </div>
@@ -46,12 +70,13 @@
     </ion-card-content>
   </ion-card>
 
-
+    <!-- Favourite button section -->
 <div class="recipe-home">
+      <!-- Button triggers toggleFavourite() -->
 <ion-button (click)="toggleFavourite()">
-  <!--Temporary message after clicking--> 
+      <!--Temporary message after clicking--> 
   <ng-container *ngIf="addedMessage">Added to 💖</ng-container>
-  <!--Normal behaviour-->
+  <!--Normal behaviour: show Add/Remove depending on isFav-->
   <ng-container *ngIf="!addedMessage">
   {{ isFav ? "Remove from 💖" : "Add 💖" }}
   </ng-container>

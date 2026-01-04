@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Settings</ion-title>
-<ion-button slot="end" fill="solid" aria-label="home" routerLink="/home">
+<!-- Home button -->
+    <ion-button slot="end" fill="solid" aria-label="home" routerLink="/home">
       <ion-icon slot="icon-only" name="home"></ion-icon>
     </ion-button>
-
+<!-- Favorites button -->
     <ion-button slot="end" fill="solid" aria-label="favourites" routerLink="/favourites">
       <ion-icon slot="icon-only" name="heart"></ion-icon>
     </ion-button>
@@ -12,27 +13,57 @@
 </ion-header>
 
 <ion-content class="">
-  <ion-card>
+   <!-- Background fruit rain -->
+  <div class="fruit-rain">
+    <span>🍎</span>
+    <span>🍌</span>
+    <span>🍇</span>
+    <span>🍉</span>
+    <span>🍓</span>
+    <span>🍍</span>
+    <span>🥭</span>
+    <span>🍒</span>
+    <span>🍑</span>
+    <span>🍊</span>
+  </div>
+
+  <!-- Card with settings for units settings -->
+  <ion-card class="settings">
         <h1>Select the Unit System Measurements:</h1>
  <ion-list>
+  <!-- Radio group bound to 'unitSystem' variable -->
+    <!-- [(ngModel)]="unitSystem" → two-way data binding keeps selected value in sync -->
+    <!-- (ionChange)="changeUnitSystem($event.detail.value)" → calls method when selection changes -->
     <ion-radio-group [(ngModel)]="unitSystem" (ionChange)="changeUnitSystem($event.detail.value)">
+      <!-- Metric option -->
       <ion-item>
-        <ion-label>Metric</ion-label>
+        <ion-label class="label">Metric</ion-label>
+        <!-- Radio button with value 'Metric' -->
         <ion-radio slot="start" value="Metric"></ion-radio>
       </ion-item>
 
+      <!-- Imperial option -->
       <ion-item>
-        <ion-label>Imperial</ion-label>
+        <ion-label class="label">Imperial</ion-label>
+        <!-- Radio button with value 'Imperial' -->
         <ion-radio slot="start" value="Imperial"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>
 </ion-card>
 
+<!-- Home button -->
   <div class="recipe-home">
 <ion-button routerLink="/home">
   <ion-icon slot="icon-only" name="home"></ion-icon>
 </ion-button>
 </div>
+
+<!-- Bufo images -->
+ <div class="bufo">
+<img src="assets/bufo/bufo-loves-rice-and-beans.png">
+<img src="assets/bufo/bufo-offers-a-piece-of-cake.png">
+</div>
+
 </ion-content>
 

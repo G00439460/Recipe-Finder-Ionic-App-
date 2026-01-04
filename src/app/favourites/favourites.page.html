@@ -14,19 +14,33 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+   <!-- Background fruit rain -->
+  <div class="fruit-rain">
+    <span>🍎</span>
+    <span>🍌</span>
+    <span>🍇</span>
+    <span>🍉</span>
+    <span>🍓</span>
+    <span>🍍</span>
+    <span>🥭</span>
+    <span>🍒</span>
+    <span>🍑</span>
+    <span>🍊</span>
+  </div>
+  
 <!--Display each recipe in a card layout-->
 <!--Looping through the favourites array-->
- <ion-card *ngFor="let recipe of favourites">
+ <ion-card class="card-fav" *ngFor="let recipe of favourites">
     <!--Shows recipe image dynamically-->
     <img [src]="recipe.image" alt="{{ recipe.title }}">
     <!--Display recipe title-->
     <ion-card-header>
-      <h5>Recipe name:</h5>
+      <h5>✔️ Recipe name:</h5>
       <h1>{{ recipe.title }}</h1>
     </ion-card-header>
 
     <ion-card-content>
-      <h2>Ingredients:</h2>
+      <h2>🧂 Ingredients:</h2>
       <!--Loops through recipe ingredients-->
       <ul>
         <li *ngFor="let ing of recipe.extendedIngredients">
@@ -39,7 +53,7 @@
         </li>
       </ul>
 
-      <h2>Instructions:</h2>
+      <h2>📝 Instructions:</h2>
       <!--Loops through recipe instruction-->
       <div *ngFor="let instr of recipe.analyzedInstructions">
         <!--Loops through multiple steps. Displayed in a list-->
@@ -52,8 +66,9 @@
       </div>
 
       <!--Remove button, call the method remove recipe by id-->
-    <ion-button (click)="remove(recipe.id)">
-      Remove from 💖
+    <ion-button class="button-fav" (click)="remove(recipe.id)">
+      Remove from
+      <ion-icon slot="end" name="heart" ></ion-icon>
     </ion-button>
 
 
@@ -66,5 +81,8 @@
 <ion-button routerLink="/home">
   <ion-icon slot="icon-only" name="home"></ion-icon>
 </ion-button>
+</div>
+<div class="bufo-fav">
+<img src="assets/bufo/bufo-di-beppo.png">
 </div>
 </ion-content>

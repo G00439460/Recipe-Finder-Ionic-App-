@@ -16,17 +16,24 @@ import { SettingService } from '../services/setting-service';
   ]
 })
 export class SettingsPage implements OnInit {
-
+// Property to store the current unit system (Metric or Imperial).
+// Default value is 'Metric'.
 unitSystem: 'Metric' | 'Imperial' = 'Metric';
 
+// Constructor injects the SettingService, which manages app settings.
   constructor(private settings: SettingService) {}
 
   ngOnInit() {
+// Retrieve the saved unit system from SettingService.
+  // and set it to the local unitSystem property.
     this.unitSystem = this.settings.getUnitSystem();
   }
 
+// Method called when the user changes the unit system in the UI.
   changeUnitSystem(value: 'Metric' | 'Imperial') {
+    // Update the unit system in SettingService.
     this.settings.setUnitSystem(value);
+    // Update the local property to reflect the new value
     this.unitSystem = value;
   }
 }

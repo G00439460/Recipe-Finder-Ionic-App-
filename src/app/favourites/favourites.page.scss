@@ -1,5 +1,5 @@
 .recipe-home {
-    background-color:#f782d4;
+    //background-color:#f782d4;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -8,6 +8,47 @@
 .recipe-home ion-button{
     width: 100px;
     height: 40px;
-    --background: #f7f5f6;
+    --background:#faf5f9;
     
+}
+.bufo{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.bufo img{
+  width: 200px;
+  height: 200px;
+}
+
+.button-fav{
+  --background: #f414cb;
+  --color:#f9f7f8;
+}
+
+.card-fav{
+  --background: rgba(255, 255, 255, 0.7);
+}
+
+.card-fav img{
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.bufo-fav{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.bufo-fav img{
+  width: 200px;
+  height: 200px;
 }

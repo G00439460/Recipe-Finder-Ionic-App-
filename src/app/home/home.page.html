@@ -33,7 +33,7 @@
   <ion-card>
   <div class="ingredient-section">
     <!-- Title -->
-    <h4>Enter Ingredients</h4>
+    <h4>👉 Enter Ingredients</h4>
     <!-- Serch bar -->
       <!-- Input type text -->
       <!-- Input name -->
@@ -61,19 +61,19 @@
   <!-- Loops through 'recipes' array -->
 <div *ngFor="let recipe of recipes">
     <!-- Card for each recipe -->
-    <ion-card>
+    <ion-card class="details">
       <!-- Recipe image -->
       <img [src]="recipe?.image" alt="{{ recipe.title }}">
       <ion-card-header>
         <!-- Recipe title -->
-        <ion-card-title>{{ recipe?.title }}</ion-card-title>
+        <ion-card-title>😋{{ recipe?.title }}</ion-card-title>
       </ion-card-header>
           <!-- Recipe summary text -->
       <p>{{ recipe?.summary }}</p>
 
         <ion-card-content>
       <!-- Details button linking to recipe details page -->
-        <ion-button fill="outline" [routerLink]="['/recipe-details', recipe.id]">
+        <ion-button class="button-det" fill="solid" [routerLink]="['/recipe-details', recipe.id]">
           Details
         </ion-button>
       </ion-card-content>   
